@@ -1,0 +1,59 @@
+.login-from-cont {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  background-color: #272727;
+  height: 350px;
+  width: 350px;
+  text-align: center;
+  padding: 20px;
+}
+
+.website-logo {
+  width: 100px;
+  height: 60px;
+  margin-bottom: 30px;
+}
+.eachInputField {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.input-label {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.input-text {
+  background-color: transparent;
+  border-color: #b6c5ff;
+  border-radius: 6px;
+  padding: 8px;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.login-btn {
+  background-color: #4f46e5;
+  border-width: 0px;
+  color: white;
+  font-weight: bold;
+  padding: 8px;
+
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.err-msg {
+  color: red;
+  font-size: 10px;
+  font-weight: 900;
+}
