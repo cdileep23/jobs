@@ -1,0 +1,59 @@
+.namesDisplayingCont {
+  background-color: black;
+  min-height: 87vh;
+}
+
+.jobsList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 87vh;
+}
+.uList {
+  padding: 20px;
+}
+.bgCont {
+  background-color: black;
+}
+
+.search-bar-container {
+  background-color: transparent;
+  width: 400px;
+  border-width: 2px;
+  border-color: #7e858e;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border-style: solid;
+}
+
+.search-icon {
+  background-color: #272727;
+  height: 100%;
+  width: 50px;
+  height: 100%;
+  font-size: 20px;
+  padding: 10px;
+
+  color: #cbd5e1;
+}
+
+.input-element {
+  background-color: transparent;
+  outline: none;
+  border-style: none;
+  padding: 20px;
+  flex-grow: 1;
+  color: #cbd5e1;
+}
+
+.button1 {
+  background-color: transparent;
+  border-width: 0px;
+  padding: 0px;
+  margin: 0px;
+}
