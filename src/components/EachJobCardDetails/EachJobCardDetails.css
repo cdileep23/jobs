@@ -1,0 +1,28 @@
+.bg-cont {
+  background-color: black;
+  min-height: 100vh;
+
+  padding: 40px;
+  padding-top: 0px;
+}
+
+.job-card {
+  background-color: #272727;
+
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.similar-jobs {
+  color: white;
+  font-size: 20px;
+}
+.similar-jobs-cont {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 500px;
+  padding: 0px;
+  margin: 0px;
+}

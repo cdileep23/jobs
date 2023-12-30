@@ -3,7 +3,7 @@ import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import {FaSearch} from 'react-icons/fa'
 import Header from '../Header'
-
+import FilterGroup from '../FilterGroup/index'
 import JobsDetailsCard from '../jobsDetailsCard/index'
 import Profile from '../Profile/index'
 import './index.css'
@@ -78,7 +78,9 @@ class Jobs extends Component {
         return this.renderForSucces()
       case apiViews.loader:
         return (
-          <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+          <div className="loader-container" data-testid="loader">
+            <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+          </div>
         )
       default:
         return null
@@ -97,11 +99,20 @@ class Jobs extends Component {
   }
 
   render() {
+    const {employmentTypesList, salaryRangesList} = this.props
+    console.log(employmentTypesList)
     return (
       <div className="bgCont">
         <Header />
         <div className="namesDisplayingCont">
-          <Profile />
+          <div className="filters-container">
+            <Profile />
+            <FilterGroup
+              employmentTypesList={employmentTypesList}
+              salaryRangesList={salaryRangesList}
+            />
+          </div>
+
           <div className="jobsList">
             <div className="search-bar-container">
               <input

@@ -10,6 +10,11 @@
   color: white;
   width: 40%;
 }
+.nav-links {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 .home-para {
   font-size: 25px;

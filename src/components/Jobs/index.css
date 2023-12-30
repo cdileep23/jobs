@@ -1,16 +1,38 @@
 .namesDisplayingCont {
   background-color: black;
   min-height: 87vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.filters-container {
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-left: 30px;
+}
+
+@media only screen and (max-width: 576px) {
+  .namesDisplayingCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .filters-container {
+    margin-bottom: 20px;
+    padding: 0px;
+  }
 }
 
 .jobsList {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-
   min-height: 87vh;
 }
+
 .uList {
   padding: 20px;
 }
@@ -29,6 +51,7 @@
   align-items: center;
   border-radius: 8px;
   border-style: solid;
+  margin: 20px;
 }
 
 .search-icon {
@@ -56,4 +79,13 @@
   border-width: 0px;
   padding: 0px;
   margin: 0px;
+}
+
+.loader-container {
+  height: 87vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }

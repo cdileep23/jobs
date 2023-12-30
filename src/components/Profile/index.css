@@ -7,6 +7,7 @@
 
   border-radius: 20px;
   text-align: left;
+  margin-bottom: 20px;
 }
 
 .profile-heading {
@@ -34,4 +35,10 @@
   border-radius: 6px;
   color: white;
   padding: 8px;
+}
+
+@media only screen and (max-width: 576px) {
+  .profileCont {
+    margin: 0px;
+  }
 }

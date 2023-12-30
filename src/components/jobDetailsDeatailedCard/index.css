@@ -49,3 +49,41 @@
 .class-link {
   text-decoration: none;
 }
+.skills-list {
+  padding: 0px;
+  list-style-type: none;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.company-image {
+  width: 280px;
+  height: 200px;
+  margin-left: 20px;
+}
+.para {
+  width: 60%;
+}
+.company-lifestyle {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigate-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigate-icon {
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+}

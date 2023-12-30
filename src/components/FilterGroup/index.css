@@ -1,0 +1,12 @@
+.filter-group-container {
+  width: 350px;
+}
+
+.hr-element {
+  border-color: white;
+  border-width: 2px;
+}
+.main-heading {
+  color: white;
+  font-size: 20px;
+}
