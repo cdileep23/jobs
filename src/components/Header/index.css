@@ -14,8 +14,9 @@
   margin-top: 20px;
   margin-left: 20px;
 }
-.each-nav-tem {
-  margin-left: 20px;
+
+.link-item {
+  text-decoration: none;
 }
 
 .div-links {
@@ -31,6 +32,7 @@
   text-decoration: none;
   cursor: pointer;
   list-style-type: none;
+  margin-left: 20px;
 }
 .logout-button {
   background-color: #6366f1;

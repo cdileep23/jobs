@@ -64,9 +64,7 @@
   height: 200px;
   margin-left: 20px;
 }
-.para {
-  width: 60%;
-}
+
 .company-lifestyle {
   display: flex;
   flex-direction: row;
@@ -86,4 +84,19 @@
 
 .nav-link {
   text-decoration: none;
+}
+
+@media only screen and (max-width: 576px) {
+  .company-lifestyle {
+    display: flex;
+    flex-direction: column;
+  }
+  .para {
+    order: 3;
+    align-self: center;
+    width: 100%;
+  }
+  .company-logo {
+    order: 1;
+  }
 }

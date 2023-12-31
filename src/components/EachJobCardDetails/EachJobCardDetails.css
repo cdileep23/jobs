@@ -1,8 +1,6 @@
 .bg-cont {
   background-color: black;
   min-height: 100vh;
-
-  padding: 40px;
   padding-top: 0px;
 }
 
@@ -12,6 +10,7 @@
   padding: 20px;
   border-radius: 10px;
   margin-top: 20px;
+  margin: 40px;
 }
 
 .similar-jobs {
@@ -22,7 +21,19 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 500px;
+
   padding: 0px;
-  margin: 0px;
+  margin: 40px;
+}
+.similar-jobs {
+  margin-left: 40px;
+}
+
+@media only screen and (max-width: 576px) {
+  .similar-jobs-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

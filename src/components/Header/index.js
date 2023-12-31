@@ -10,7 +10,7 @@ const Header = props => {
   }
   return (
     <div className="header-cont">
-      <Link to="/">
+      <Link className="link-item" to="/">
         <li>
           <img
             alt="website logo"
