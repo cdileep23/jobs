@@ -51,6 +51,7 @@ const apiViews = {
   success: 'SUCCESS',
   failure: 'FAILURE',
   loader: 'LOADING',
+  empty: 'EMPTY',
 }
 
 class Jobs extends Component {
@@ -80,7 +81,11 @@ class Jobs extends Component {
       title: e.title,
     }))
 
-    this.setState({jobsList: newData, apiStatus: apiViews.success})
+    if (newData.length === 0) {
+      this.setState({apiStatus: apiViews.empty})
+    } else {
+      this.setState({jobsList: newData, apiStatus: apiViews.success})
+    }
   }
 
   changeRating = activeRatingId => {
@@ -114,11 +119,11 @@ class Jobs extends Component {
 
   changeEmployement = string => {
     const {employmentTypeArray} = this.state
-    if (this.checkWhetherElementPresentOrNot(string)) {
+    if (this.checkWhetherElementPresentOrNot(string) === true) {
       const index = employmentTypeArray.indexOf(string)
-      console.log(index)
-      const newArray = employmentTypeArray.splice(index, 1)
-      this.setState({employmentTypeArray: newArray}, this.getJobs)
+
+      employmentTypeArray.splice(index, 1)
+      this.setState({employmentTypeArray}, this.getJobs)
     } else {
       employmentTypeArray.push(string)
       this.setState({employmentTypeArray}, this.getJobs)
@@ -140,7 +145,7 @@ class Jobs extends Component {
     const {employmentTypeArray} = this.state
     let isPresent = false
 
-    for (let i = 0; i < employmentTypeArray.length; i = i + 1) {
+    for (let i = 0; i < employmentTypeArray.length; i += 1) {
       if (employmentTypeArray[i] === string) {
         isPresent = true
         return isPresent
@@ -175,6 +180,20 @@ class Jobs extends Component {
             </button>
           </div>
         )
+
+      case apiViews.empty:
+        return (
+          <div className="empty-list-container">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+              alt="no jobs"
+              className="noJobsImage"
+            />
+            <h1>No Jobs Found</h1>
+            <p>We could not find any jobs. Try other filters</p>
+          </div>
+        )
+
       default:
         return null
     }
@@ -228,7 +247,7 @@ class Jobs extends Component {
                 <FaSearch className="search-icon" />
               </button>
             </div>
-            {this.renderResult()}
+            <div>{this.renderResult()}</div>
           </div>
         </div>
       </div>

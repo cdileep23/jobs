@@ -34,18 +34,9 @@ const FilterGroup = props => {
     return employmentTypesList.map(e => {
       const {changeEmployement} = props
 
-      const appendItems = str => {
-        if (employmentTypeArray.includes(str)) {
-          const index = employmentTypeArray.indexOf(str)
-          employmentTypeArray.splice(index, 1)
-        } else {
-          employmentTypeArray.push(str)
-        }
-        console.log(employmentTypeArray)
-        return employmentTypeArray.join(',')
-      }
       const onClickEmploymentItem = event => {
         console.log(event.target.id)
+
         changeEmployement(event.target.id)
       }
 

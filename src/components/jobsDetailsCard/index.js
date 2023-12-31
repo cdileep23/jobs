@@ -27,7 +27,7 @@ const JobsDetailsCard = props => {
             alt="company logo"
           />
 
-          <div>
+          <div className="company-brief">
             <h1 className="job-title">{title}</h1>
             <div className="rating-container">
               <FaStar className="job-rating" />

@@ -2,6 +2,7 @@
   height: 50px;
   width: 50px;
   margin-right: 20px;
+  order: 1;
 }
 .eachJobItem {
   background-color: #272727;
@@ -16,6 +17,7 @@
 .dflex {
   display: flex;
   flex-direction: row;
+
   align-items: center;
   margin-right: 10px;
 }
@@ -51,6 +53,11 @@
 }
 .rating-container {
   display: flex;
+  margin: 0px;
   flex-direction: row;
   align-items: center;
+}
+
+.company-brief {
+  order: 3;
 }
