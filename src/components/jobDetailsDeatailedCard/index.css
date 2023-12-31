@@ -100,3 +100,9 @@
     order: 1;
   }
 }
+
+.rating-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

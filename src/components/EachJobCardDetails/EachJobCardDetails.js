@@ -2,6 +2,7 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import Header from '../Header'
+import NotFound from '../NotFound'
 import SimilarJobCard from '../similarJobCard'
 
 import JobsDetailsDetailedCard from '../jobDetailsDeatailedCard'
@@ -63,6 +64,10 @@ class EachJobCardDetails extends Component {
     this.setState({apiStatus: differentjobCardSuccess.success})
   }
 
+  submitFailure = () => {
+    this.setState({apiStatus: differentjobCardSuccess.failure})
+  }
+
   getJob = async () => {
     this.setState({apiStatus: differentjobCardSuccess.loading})
     const {match} = this.props
@@ -116,6 +121,20 @@ class EachJobCardDetails extends Component {
         )
       case differentjobCardSuccess.success:
         return this.renderSuccess()
+      case differentjobCardSuccess.failure:
+        return (
+          <div className="failure-cont">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/failure-img.png "
+              alt="failure view"
+            />
+            <h1>Oops Something Went Wrong</h1>
+            <p>we cannot seem to find the page you are looking for</p>
+            <button onClick={this.getJob} type="button">
+              Retry
+            </button>
+          </div>
+        )
       default:
         return null
     }

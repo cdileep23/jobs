@@ -49,3 +49,8 @@
 .class-link {
   text-decoration: none;
 }
+.rating-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

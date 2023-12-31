@@ -37,3 +37,16 @@
     align-items: center;
   }
 }
+
+.failure-cont {
+  height: 100%;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  background-color: black;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  max-height: 100vh;
+}

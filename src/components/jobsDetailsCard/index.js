@@ -21,13 +21,17 @@ const JobsDetailsCard = props => {
     <Link className="class-link" to={`/jobs/${id}`}>
       <li className="eachJobItem">
         <div className="dflex">
-          <img className="company-logo" src={companyLogoUrl} alt="company" />
+          <img
+            className="company-logo"
+            src={companyLogoUrl}
+            alt="company logo"
+          />
 
           <div>
             <h1 className="job-title">{title}</h1>
-            <div>
+            <div className="rating-container">
               <FaStar className="job-rating" />
-              {rating}
+              <p> {rating}</p>
             </div>
           </div>
         </div>

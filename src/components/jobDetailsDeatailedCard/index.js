@@ -25,13 +25,17 @@ const JobsDetailsDetailedCard = props => {
   return (
     <div className="eachJobItem">
       <div className="dflex">
-        <img className="company-logo" src={companyLogoUrl} alt="company" />
+        <img
+          className="company-logo"
+          src={companyLogoUrl}
+          alt="job details company logo"
+        />
 
         <div>
           <h1 className="job-title">{title}</h1>
-          <div>
+          <div className="rating-container">
             <FaStar className="job-rating" />
-            {rating}
+            <p>{rating}</p>
           </div>
         </div>
       </div>
@@ -74,7 +78,11 @@ const JobsDetailsDetailedCard = props => {
 
       <div className="company-lifestyle">
         <p className="para">{lifeAtCompany.description}</p>
-        <img className="company-image" src={lifeAtCompany.imageUrl} alt="kk" />
+        <img
+          className="company-image"
+          src={lifeAtCompany.imageUrl}
+          alt="life at company"
+        />
       </div>
     </div>
   )

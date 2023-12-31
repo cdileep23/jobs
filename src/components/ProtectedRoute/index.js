@@ -6,7 +6,7 @@ const ProtectedRoute = props => {
   if (jwtToken === undefined) {
     return <Redirect to="/login" />
   }
-  console.log(props)
+
   return <Route {...props} />
 }
 

@@ -6,7 +6,46 @@ import Header from '../Header'
 import FilterGroup from '../FilterGroup/index'
 import JobsDetailsCard from '../jobsDetailsCard/index'
 import Profile from '../Profile/index'
+import NotFound from '../NotFound'
 import './index.css'
+
+const employmentTypesList = [
+  {
+    label: 'Full Time',
+    employmentTypeId: 'FULLTIME',
+  },
+  {
+    label: 'Part Time',
+    employmentTypeId: 'PARTTIME',
+  },
+  {
+    label: 'Freelance',
+    employmentTypeId: 'FREELANCE',
+  },
+  {
+    label: 'Internship',
+    employmentTypeId: 'INTERNSHIP',
+  },
+]
+
+const salaryRangesList = [
+  {
+    salaryRangeId: '1000000',
+    label: '10 LPA and above',
+  },
+  {
+    salaryRangeId: '2000000',
+    label: '20 LPA and above',
+  },
+  {
+    salaryRangeId: '3000000',
+    label: '30 LPA and above',
+  },
+  {
+    salaryRangeId: '4000000',
+    label: '40 LPA and above',
+  },
+]
 
 const apiViews = {
   success: 'SUCCESS',
@@ -20,6 +59,9 @@ class Jobs extends Component {
     jobsList: [],
     searchValinput: '',
     onchangeInputVal: '',
+    activeRatingId: '1000000',
+
+    employmentTypeArray: [],
   }
 
   componentDidMount = () => {
@@ -37,13 +79,22 @@ class Jobs extends Component {
       rating: e.rating,
       title: e.title,
     }))
-    console.log(newData)
+
     this.setState({jobsList: newData, apiStatus: apiViews.success})
   }
 
+  changeRating = activeRatingId => {
+    this.setState({activeRatingId}, this.getJobs)
+  }
+
+  apiViewFailure = () => {
+    this.setState({apiStatus: apiViews.failure})
+  }
+
   getJobs = async () => {
-    const {searchValinput} = this.state
-    const url = `https://apis.ccbp.in/jobs?search=${searchValinput}`
+    const {searchValinput, activeRatingId, employmentTypeArray} = this.state
+    const employmentType = employmentTypeArray.join(',')
+    const url = `https://apis.ccbp.in/jobs?employment_type=${employmentType}&search=${searchValinput}&minimum_package=${activeRatingId}`
     const jwtToken = Cookies.get('jwt_token')
     const options = {
       method: 'GET',
@@ -56,6 +107,21 @@ class Jobs extends Component {
     const data = await response.json()
     if (response.ok === true) {
       this.apiViewSuccess(data.jobs)
+    } else {
+      this.apiViewFailure()
+    }
+  }
+
+  changeEmployement = string => {
+    const {employmentTypeArray} = this.state
+    if (this.checkWhetherElementPresentOrNot(string)) {
+      const index = employmentTypeArray.indexOf(string)
+      console.log(index)
+      const newArray = employmentTypeArray.splice(index, 1)
+      this.setState({employmentTypeArray: newArray}, this.getJobs)
+    } else {
+      employmentTypeArray.push(string)
+      this.setState({employmentTypeArray}, this.getJobs)
     }
   }
 
@@ -70,6 +136,19 @@ class Jobs extends Component {
     )
   }
 
+  checkWhetherElementPresentOrNot = string => {
+    const {employmentTypeArray} = this.state
+    let isPresent = false
+
+    for (let i = 0; i < employmentTypeArray.length; i = i + 1) {
+      if (employmentTypeArray[i] === string) {
+        isPresent = true
+        return isPresent
+      }
+    }
+    return isPresent
+  }
+
   renderResult = () => {
     const {apiStatus} = this.state
 
@@ -80,6 +159,20 @@ class Jobs extends Component {
         return (
           <div className="loader-container" data-testid="loader">
             <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+          </div>
+        )
+      case apiViews.failure:
+        return (
+          <div className="failure-cont">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/failure-img.png "
+              alt="failure view"
+            />
+            <h1>Oops Something Went Wrong</h1>
+            <p>we cannot seem to find the page you are looking for</p>
+            <button onClick={this.getJobs} type="button">
+              Retry
+            </button>
           </div>
         )
       default:
@@ -99,8 +192,8 @@ class Jobs extends Component {
   }
 
   render() {
-    const {employmentTypesList, salaryRangesList} = this.props
-    console.log(employmentTypesList)
+    const {activeRatingId, employmentTypeArray} = this.state
+    console.log(employmentTypeArray)
     return (
       <div className="bgCont">
         <Header />
@@ -108,6 +201,10 @@ class Jobs extends Component {
           <div className="filters-container">
             <Profile />
             <FilterGroup
+              employmentTypeArray={this.employmentTypeArray}
+              changeEmployement={this.changeEmployement}
+              activeRatingId={activeRatingId}
+              changeRating={this.changeRating}
               employmentTypesList={employmentTypesList}
               salaryRangesList={salaryRangesList}
             />

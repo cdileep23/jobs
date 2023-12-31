@@ -1,0 +1,11 @@
+.failure-cont {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background-color: black;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  min-height: 100vh;
+}

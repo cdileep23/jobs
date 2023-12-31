@@ -45,10 +45,9 @@ class Profile extends Component {
     }
     const response = await fetch(url, options)
     const data = await response.json()
-    console.log(data)
+
     if (response.ok === true) {
       this.submitSuccess(data.profile_details)
-      console.log(data.profile_details)
     } else if (data.status_code === 401) {
       this.submitFailure()
     }
@@ -60,7 +59,7 @@ class Profile extends Component {
 
     return (
       <div className="profileCont">
-        <img src={profileImageUrl} alt={name} />
+        <img src={profileImageUrl} alt="profile" />
         <h1 className="profile-heading">{name}</h1>
         <p className="profile-para">{shortBio}</p>
       </div>
